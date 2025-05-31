@@ -23,6 +23,7 @@ execute at @a as @e[type=irons_spellbooks:summoned_zombie,distance=..5,name="炸
 execute as @a[scores={explo_zom=1..}] run scoreboard players remove @s explo_zom 1
 execute as @a[scores={explo_zom=80..}] run function test:zombie_explo
 
+#不用管他
 execute store result bossbar minecraft:ccc value run scoreboard players get @a[limit=1,scores={summoner=1..}] summoner
 
 #飛過來炸的那個
@@ -45,3 +46,8 @@ execute if score "aaa" time_counting matches 5 run bossbar set minecraft:ccc col
 
 #傷害偵測比較好的寫法
 execute as @a if predicate test:hurttime run effect give @s strength 10 2
+
+#箭矢反轉
+execute at @e[type=minecraft:zombie,limit=1] run execute store result entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[0] double -1 run data get entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[0]
+execute at @e[type=minecraft:zombie,limit=1] run execute store result entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[2] double -1 run data get entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[2]
+execute at @e[type=minecraft:zombie,limit=1] run data modify entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[1] set value 0.2 
