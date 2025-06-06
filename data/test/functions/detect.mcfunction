@@ -48,6 +48,8 @@ execute if score "aaa" time_counting matches 5 run bossbar set minecraft:ccc col
 execute as @a if predicate test:hurttime run effect give @s strength 10 2
 
 #箭矢反轉
-execute at @e[type=minecraft:zombie,limit=1] run execute store result entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[0] double -1 run data get entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[0]
-execute at @e[type=minecraft:zombie,limit=1] run execute store result entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[2] double -1 run data get entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[2]
-execute at @e[type=minecraft:zombie,limit=1] run data modify entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[1] set value 0.2 
+execute at @e[type=minecraft:zombie,limit=1] run execute store result entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[0] double -2 run data get entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[0]
+execute at @e[type=minecraft:zombie,limit=1] run execute store result entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[2] double -2 run data get entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[2]
+execute at @e[type=minecraft:zombie,limit=1] run data modify entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[1] set value 0
+execute at @e[type=minecraft:zombie,limit=1] run data modify entity @e[type=minecraft:arrow,limit=1,distance=..5] NoGravity set value 1b
+execute at @e[type=minecraft:zombie,limit=1] as @e[type=minecraft:arrow,limit=1,distance=..5] at @s run tp @s ^ ^ ^-0.03
