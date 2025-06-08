@@ -45,7 +45,7 @@ execute if score "aaa" time_counting matches 4 run bossbar set minecraft:ccc col
 execute if score "aaa" time_counting matches 5 run bossbar set minecraft:ccc color red
 
 #傷害偵測比較好的寫法
-execute as @a if predicate test:hurttime run effect give @s strength 10 2
+execute as @a if predicate test:hurttime run effect give @s strength 10 1
 
 #箭矢反轉
 execute at @e[type=minecraft:zombie,limit=1] run execute store result entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[0] double -2 run data get entity @e[type=minecraft:arrow,limit=1,distance=..5] Motion[0]
